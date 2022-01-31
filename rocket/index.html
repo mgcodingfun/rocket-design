@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rocket</title>
+
+    <style>
+      :root {
+        --bgColor: rgb(196, 136, 245);
+        --windowColor: rgb(145, 77, 200);
+        --wingColor: rgb(145, 77, 200);
+      }
+      body {
+        background-color: var(--bgColor);
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .main_container {
+        margin-top: 50px;
+        width: 150px;
+        height: 200px;
+        position: relative;
+        animation: bounce 1s linear infinite alternate;
+      }
+
+      @keyframes bounce {
+        from {
+          transform: translateY(0%);
+        }
+        to {
+          transform: translateY(5%);
+        }
+      }
+
+      .rocket_container {
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .rocket_container .rocket_body {
+        background-color: #fff;
+        width: 150px;
+        height: 150px;
+        border-radius: 100% 0 100% 0;
+        transform: rotate(-45deg);
+        position: relative;
+        overflow: hidden;
+        border: none;
+      }
+
+      .rocket_container .rocket_body .top_rec {
+        background: rgb(52, 0, 95);
+        width: 60px;
+        height: 60px;
+        position: absolute;
+        transform: rotate(-45deg);
+        top: -20%;
+        right: -20%;
+      }
+
+      .rocket_body .window {
+        width: 40px;
+        height: 40px;
+        border-radius: 100%;
+        background-color: var(--windowColor);
+        position: absolute;
+        top: 40%;
+        left: 60%;
+        transform: translate(-50%, -50%);
+      }
+
+      .rocket_container .base_container {
+        width: 50px;
+        height: 50px;
+        background-color: var(--bgColor);
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .base_container .rec_red {
+        background-color: red;
+        width: 40px;
+        height: 15px;
+        margin: 0 auto;
+      }
+
+      .rocket_container .wing_front {
+        width: 5px;
+        height: 50px;
+        background-color: rgb(52, 0, 95);
+        position: absolute;
+        top: 55%;
+        left: 50%;
+        border-radius: 100% 0 100% 0;
+        transform: translateX(-50%);
+      }
+
+      .rocket_container .wing {
+        width: 120px;
+        height: 150px;
+        border-radius: 50%;
+        position: absolute;
+        z-index: -1;
+        margin-top: 50%;
+      }
+
+      .wing.dark {
+        background-color: var(--wingColor);
+        width: 130px;
+      }
+      .wing.light {
+        width: 120px;
+        top: 1%;
+        background-color: var(--bgColor);
+      }
+
+      .rocket_container .smoke {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        border-radius: 100% 0% 100% 100% / 100% 0% 100% 0%;
+        bottom: -43%;
+        transform: rotate(-45deg);
+        background-color: rgb(238, 201, 245);
+      }
+
+      svg {
+        position: absolute;
+        bottom: -25%;
+        z-index: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main_container">
+      <div class="rocket_container">
+        <div class="rocket_body">
+          <div class="top_rec"></div>
+          <div class="window"></div>
+        </div>
+        <div class="base_container">
+          <div class="rec_red"></div>
+        </div>
+
+        <div class="wing_front"></div>
+        <div class="wing dark"></div>
+        <div class="wing light"></div>
+
+        <div class="smoke"></div>
+      </div>
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <path
+        fill="rgb(238, 201, 245)"
+        fill-opacity="1"
+        d="M0,32L30,48C60,64,120,96,180,106.7C240,117,300,107,360,128C420,149,480,203,540,213.3C600,224,660,192,720,197.3C780,203,840,245,900,240C960,235,1020,181,1080,149.3C1140,117,1200,107,1260,101.3C1320,96,1380,96,1410,96L1440,96L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z"
+      ></path>
+    </svg>
+  </body>
+</html>
